@@ -50,6 +50,7 @@ const Index = () => {
   const [viewMode, setViewMode] = useState<ViewMode>("split");
   const [isExporting, setIsExporting] = useState(false);
   const [pdfSettings, setPdfSettings] = useState<PdfSettings>(DEFAULT_PDF_SETTINGS);
+  const [showPageBoundaries, setShowPageBoundaries] = useState(true);
   const previewRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<EditorToolbarActions>(null);
 
@@ -131,6 +132,8 @@ const Index = () => {
         pdfSettings={pdfSettings}
         onPdfSettingsChange={setPdfSettings}
         onSelectTemplate={setMarkdown}
+        showPageBoundaries={showPageBoundaries}
+        onTogglePageBoundaries={() => setShowPageBoundaries((v) => !v)}
       />
 
       <main className="flex flex-1 min-h-0">
@@ -166,7 +169,7 @@ const Index = () => {
               </span>
             </div>
             <div className="flex-1 min-h-0 overflow-auto" ref={previewRef}>
-              <MarkdownPreview markdown={markdown} settings={pdfSettings} />
+              <MarkdownPreview markdown={markdown} settings={pdfSettings} showPageBoundaries={showPageBoundaries} />
             </div>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { Download, FileText, Eye, Columns2 } from "lucide-react";
+import { Download, FileText, Eye, Columns2, Ruler } from "lucide-react";
 import PdfSettingsDialog from "@/components/PdfSettingsDialog";
 import TemplateGallery from "@/components/TemplateGallery";
 import { PdfSettings } from "@/types/pdf-settings";
@@ -13,9 +13,11 @@ interface ToolbarProps {
   pdfSettings: PdfSettings;
   onPdfSettingsChange: (settings: PdfSettings) => void;
   onSelectTemplate: (content: string) => void;
+  showPageBoundaries: boolean;
+  onTogglePageBoundaries: () => void;
 }
 
-const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting, pdfSettings, onPdfSettingsChange, onSelectTemplate }: ToolbarProps) => {
+const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting, pdfSettings, onPdfSettingsChange, onSelectTemplate, showPageBoundaries, onTogglePageBoundaries }: ToolbarProps) => {
   return (
     <header className="flex items-center justify-between px-5 py-3 bg-toolbar">
       <div className="flex items-center gap-2">
@@ -61,6 +63,18 @@ const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting, pdfSett
 
         <TemplateGallery onSelect={onSelectTemplate} />
         <PdfSettingsDialog settings={pdfSettings} onChange={onPdfSettingsChange} />
+
+        <button
+          onClick={onTogglePageBoundaries}
+          className={`p-2 rounded-md transition-colors ${
+            showPageBoundaries
+              ? "bg-accent text-accent-foreground"
+              : "text-toolbar-muted hover:text-toolbar-foreground"
+          }`}
+          title={showPageBoundaries ? "Dölj sidgränser" : "Visa sidgränser"}
+        >
+          <Ruler className="w-4 h-4" />
+        </button>
 
         <button
           onClick={onExportPdf}
