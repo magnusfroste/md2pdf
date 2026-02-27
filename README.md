@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# md2pdf
 
-## Project info
+## Overview
+md2pdf is a powerful tool designed to convert Markdown files into high-quality PDF documents. It provides users with a seamless experience in transforming their markdown notes, documentation, and other text-based files into printable formats without losing the original styling and structure.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
+- **User-Friendly Interface**: Easy to navigate and utilize, making it accessible for all users.
+- **Fast Conversion**: Rapidly converts markdown files to PDFs without significant delays.
+- **Customizable Themes**: Choose from various themes to personalize the appearance of the final documents.
+- **Supports Common Markdown Syntax**: Includes links, images, lists, code, and more.
+- **Command-Line Interface**: Allows for batch processing and integration with scripts.
 
-## How can I edit this code?
+## Live Demo
+Visit our live demo at [md2pdf Live Demo](#).
 
-There are several ways of editing your application.
+## Technologies
+- **Node.js**: For backend processing.
+- **Markdown-it**: For parsing markdown content.
+- **Puppeteer**: For rendering PDFs from HTML.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Installation
+To install md2pdf, you can use npm:
+```bash
+npm install -g md2pdf
 ```
 
-**Edit a file directly in GitHub**
+## Usage
+To convert a Markdown file to PDF, use the following command:
+```bash
+md2pdf path/to/your/file.md
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
+- **build**: Compiles the application and prepares it for deployment.
+- **test**: Runs tests to ensure functionality.
+- **start**: Launches the application locally.
 
-**Use GitHub Codespaces**
+## Supported Markdown Features
+- Headings (H1, H2, H3)
+- Lists (Ordered and Unordered)
+- Blockquotes
+- Code Blocks
+- Links and Images
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Themes and Styles
+You can change the theme using command options:
+```bash
+md2pdf file.md --theme theme-name
+```
+Available themes include default, dark, and light.
 
-## What technologies are used for this project?
+## Customization
+For further customization, you can modify the CSS styles by adding your own styles in a separate CSS file and linking it during conversion:
+```bash
+md2pdf file.md --css path/to/your/custom/styles.css
+```
 
-This project is built with:
+## Deployment
+To deploy the application, ensure that your environment has Node.js installed. You can build the application using:
+```bash
+npm run build
+```
+Then, you can serve it using any static file hosting service.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Contributing
+Contributions are welcome! Please submit a pull request or open an issue to discuss your ideas. 
