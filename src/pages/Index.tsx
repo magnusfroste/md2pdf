@@ -60,13 +60,15 @@ const Index = () => {
     try {
       const html2pdf = (await import("html2pdf.js")).default;
 
-      // Create a temporary element with the preview content
+      const styleClass = pdfSettings.renderStyle !== "editorial" ? `style-${pdfSettings.renderStyle}` : "";
+      const themeClass = pdfSettings.colorTheme !== "light" ? `theme-${pdfSettings.colorTheme}` : "";
+
       const element = document.createElement("div");
-      element.className = "markdown-preview";
+      element.className = `markdown-preview ${styleClass} ${themeClass}`;
       element.style.padding = "40px";
       element.style.maxWidth = "800px";
       element.style.margin = "0 auto";
-      element.style.fontFamily = "'Crimson Pro', serif";
+      element.style.fontSize = `${pdfSettings.fontSize}px`;
       element.style.lineHeight = "1.8";
       element.style.color = "#1a1e2e";
 
@@ -92,13 +94,16 @@ const Index = () => {
 
       document.body.appendChild(element);
 
+      const pageSizeMap = { a4: "a4", letter: "letter", legal: "legal" } as const;
+
       await html2pdf()
         .set({
-          margin: [15, 15, 15, 15],
+          margin: [pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm],
           filename: "document.pdf",
           image: { type: "jpeg", quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          jsPDF: { unit: "mm", format: pageSizeMap[pdfSettings.pageSize], orientation: "portrait" },
+          pagebreak: { mode: ["avoid-all", "css", "legacy"] },
         })
         .from(element)
         .save();
@@ -111,7 +116,7 @@ const Index = () => {
     } finally {
       setIsExporting(false);
     }
-  }, [markdown]);
+  }, [markdown, pdfSettings]);
 
   return (
     <div className="flex flex-col h-screen bg-background">
