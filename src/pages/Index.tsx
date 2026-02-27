@@ -96,14 +96,14 @@ const Index = () => {
 
       const pageSizeMap = { a4: "a4", letter: "letter", legal: "legal" } as const;
 
-      await html2pdf()
+      await (html2pdf() as any)
         .set({
           margin: [pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm],
           filename: "document.pdf",
           image: { type: "jpeg", quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "mm", format: pageSizeMap[pdfSettings.pageSize], orientation: "portrait" },
-          } as any)
+          pagebreak: { mode: ["avoid-all", "css", "legacy"] },
         })
         .from(element)
         .save();
