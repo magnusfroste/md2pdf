@@ -127,6 +127,7 @@ const Index = () => {
         isExporting={isExporting}
         pdfSettings={pdfSettings}
         onPdfSettingsChange={setPdfSettings}
+        onSelectTemplate={setMarkdown}
       />
 
       <main className="flex flex-1 min-h-0">
