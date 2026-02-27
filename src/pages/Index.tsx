@@ -2,6 +2,8 @@ import { useState, useCallback, useRef } from "react";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import MarkdownPreview from "@/components/MarkdownPreview";
 import Toolbar from "@/components/Toolbar";
+import EditorToolbar from "@/components/EditorToolbar";
+import type { EditorToolbarActions } from "@/components/EditorToolbar";
 import { toast } from "sonner";
 import { PdfSettings, DEFAULT_PDF_SETTINGS } from "@/types/pdf-settings";
 
@@ -49,6 +51,7 @@ const Index = () => {
   const [isExporting, setIsExporting] = useState(false);
   const [pdfSettings, setPdfSettings] = useState<PdfSettings>(DEFAULT_PDF_SETTINGS);
   const previewRef = useRef<HTMLDivElement>(null);
+  const editorRef = useRef<EditorToolbarActions>(null);
 
   const handleExportPdf = useCallback(async () => {
     if (!markdown.trim()) {
@@ -143,8 +146,9 @@ const Index = () => {
                 Markdown
               </span>
             </div>
+            <EditorToolbar actions={editorRef.current} />
             <div className="flex-1 min-h-0">
-              <MarkdownEditor value={markdown} onChange={setMarkdown} />
+              <MarkdownEditor ref={editorRef} value={markdown} onChange={setMarkdown} />
             </div>
           </div>
         )}
