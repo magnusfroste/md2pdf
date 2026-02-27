@@ -3,6 +3,7 @@ import MarkdownEditor from "@/components/MarkdownEditor";
 import MarkdownPreview from "@/components/MarkdownPreview";
 import Toolbar from "@/components/Toolbar";
 import { toast } from "sonner";
+import { PdfSettings, DEFAULT_PDF_SETTINGS } from "@/types/pdf-settings";
 
 const DEFAULT_MARKDOWN = `# Welcome to Markdown to PDF
 
@@ -46,6 +47,7 @@ const Index = () => {
   const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN);
   const [viewMode, setViewMode] = useState<ViewMode>("split");
   const [isExporting, setIsExporting] = useState(false);
+  const [pdfSettings, setPdfSettings] = useState<PdfSettings>(DEFAULT_PDF_SETTINGS);
   const previewRef = useRef<HTMLDivElement>(null);
 
   const handleExportPdf = useCallback(async () => {
