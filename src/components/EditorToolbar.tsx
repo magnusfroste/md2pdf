@@ -71,16 +71,17 @@ const EditorToolbar = ({ actions }: EditorToolbarProps) => {
     <TooltipProvider delayDuration={300}>
       <div className="flex items-center gap-0.5 px-3 py-1.5 border-b border-border bg-muted/30 flex-wrap">
         {tools.map((tool, i) => {
-          if (tool.separator) {
+          if ("separator" in tool && tool.separator) {
             return <div key={i} className="w-px h-5 bg-border mx-1" />;
           }
-          const Icon = tool.icon;
+          const t = tool as ToolButton;
+          const Icon = t.icon;
           return (
             <Tooltip key={i}>
               <TooltipTrigger asChild>
                 <button
                   type="button"
-                  onClick={() => actions && tool.action(actions)}
+                  onClick={() => actions && t.action(actions)}
                   disabled={!actions}
                   className="p-1.5 rounded hover:bg-muted text-muted-foreground hover:text-foreground transition-colors disabled:opacity-40"
                 >
@@ -88,7 +89,7 @@ const EditorToolbar = ({ actions }: EditorToolbarProps) => {
                 </button>
               </TooltipTrigger>
               <TooltipContent side="bottom" className="text-xs">
-                {tool.label}
+                {t.label}
               </TooltipContent>
             </Tooltip>
           );
