@@ -103,7 +103,7 @@ const Index = () => {
           image: { type: "jpeg", quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "mm", format: pageSizeMap[pdfSettings.pageSize], orientation: "portrait" },
-          pagebreak: { mode: ["avoid-all", "css", "legacy"] },
+          } as any)
         })
         .from(element)
         .save();
