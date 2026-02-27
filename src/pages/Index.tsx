@@ -120,6 +120,8 @@ const Index = () => {
         viewMode={viewMode}
         onViewModeChange={setViewMode}
         isExporting={isExporting}
+        pdfSettings={pdfSettings}
+        onPdfSettingsChange={setPdfSettings}
       />
 
       <main className="flex flex-1 min-h-0">
@@ -154,7 +156,7 @@ const Index = () => {
               </span>
             </div>
             <div className="flex-1 min-h-0 overflow-auto" ref={previewRef}>
-              <MarkdownPreview markdown={markdown} />
+              <MarkdownPreview markdown={markdown} settings={pdfSettings} />
             </div>
           </div>
         )}
