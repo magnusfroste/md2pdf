@@ -1,4 +1,6 @@
 import { Download, FileText, Eye, Columns2 } from "lucide-react";
+import PdfSettingsDialog from "@/components/PdfSettingsDialog";
+import { PdfSettings } from "@/types/pdf-settings";
 
 type ViewMode = "split" | "editor" | "preview";
 
@@ -7,9 +9,11 @@ interface ToolbarProps {
   viewMode: ViewMode;
   onViewModeChange: (mode: ViewMode) => void;
   isExporting: boolean;
+  pdfSettings: PdfSettings;
+  onPdfSettingsChange: (settings: PdfSettings) => void;
 }
 
-const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting }: ToolbarProps) => {
+const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting, pdfSettings, onPdfSettingsChange }: ToolbarProps) => {
   return (
     <header className="flex items-center justify-between px-5 py-3 bg-toolbar">
       <div className="flex items-center gap-2">
@@ -52,6 +56,8 @@ const Toolbar = ({ onExportPdf, viewMode, onViewModeChange, isExporting }: Toolb
             <Eye className="w-3.5 h-3.5" />
           </button>
         </div>
+
+        <PdfSettingsDialog settings={pdfSettings} onChange={onPdfSettingsChange} />
 
         <button
           onClick={onExportPdf}

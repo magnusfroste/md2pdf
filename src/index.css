@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600;700&family=Computer+Modern+Serif:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -217,4 +217,250 @@
 .markdown-preview img {
   max-width: 100%;
   border-radius: 8px;
+}
+
+/* ===== Render Style: LaTeX ===== */
+.markdown-preview.style-latex {
+  font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', 'Times New Roman', serif;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.markdown-preview.style-latex h1,
+.markdown-preview.style-latex h2,
+.markdown-preview.style-latex h3 {
+  font-family: 'Computer Modern Serif', 'Times New Roman', serif;
+  text-align: left;
+}
+
+.markdown-preview.style-latex h1 {
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.markdown-preview.style-latex h2 {
+  font-size: 1.3rem;
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.markdown-preview.style-latex h3 {
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.markdown-preview.style-latex blockquote {
+  border-left: 2px solid hsl(0 0% 60%);
+  font-style: italic;
+}
+
+.markdown-preview.style-latex pre {
+  background: hsl(0 0% 95%);
+  color: hsl(0 0% 15%);
+  border: 1px solid hsl(0 0% 80%);
+  border-radius: 0;
+  font-size: 0.8rem;
+}
+
+.markdown-preview.style-latex code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: hsl(0 0% 93%);
+}
+
+/* ===== Render Style: GitHub ===== */
+.markdown-preview.style-github {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.markdown-preview.style-github h1,
+.markdown-preview.style-github h2,
+.markdown-preview.style-github h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.markdown-preview.style-github h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid hsl(210 18% 87%);
+}
+
+.markdown-preview.style-github h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid hsl(210 18% 87%);
+}
+
+.markdown-preview.style-github pre {
+  background: hsl(210 17% 95%);
+  color: hsl(215 14% 34%);
+  border-radius: 6px;
+  border: 1px solid hsl(210 18% 87%);
+}
+
+.markdown-preview.style-github code {
+  background: hsl(210 25% 93% / 0.5);
+  border-radius: 6px;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+}
+
+.markdown-preview.style-github blockquote {
+  border-left: 4px solid hsl(210 18% 84%);
+  color: hsl(215 12% 47%);
+}
+
+.markdown-preview.style-github th {
+  background: hsl(210 17% 95%);
+}
+
+/* ===== Render Style: Minimal ===== */
+.markdown-preview.style-minimal {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.markdown-preview.style-minimal h1,
+.markdown-preview.style-minimal h2,
+.markdown-preview.style-minimal h3 {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.markdown-preview.style-minimal h1 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid hsl(0 0% 85%);
+  padding-bottom: 0.5rem;
+}
+
+.markdown-preview.style-minimal h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: hsl(0 0% 40%);
+}
+
+.markdown-preview.style-minimal h3 {
+  font-size: 1rem;
+}
+
+.markdown-preview.style-minimal pre {
+  background: hsl(0 0% 97%);
+  color: hsl(0 0% 25%);
+  border: 1px solid hsl(0 0% 90%);
+  border-radius: 2px;
+}
+
+.markdown-preview.style-minimal code {
+  background: hsl(0 0% 95%);
+  border-radius: 2px;
+}
+
+.markdown-preview.style-minimal blockquote {
+  border-left: 2px solid hsl(0 0% 75%);
+  color: hsl(0 0% 50%);
+}
+
+.markdown-preview.style-minimal table {
+  border: none;
+}
+
+.markdown-preview.style-minimal th,
+.markdown-preview.style-minimal td {
+  border: none;
+  border-bottom: 1px solid hsl(0 0% 90%);
+}
+
+.markdown-preview.style-minimal th {
+  background: transparent;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Color Themes ===== */
+.markdown-preview.theme-dark {
+  background: hsl(220 20% 12%) !important;
+  color: hsl(210 20% 85%) !important;
+}
+
+.markdown-preview.theme-dark h1,
+.markdown-preview.theme-dark h2,
+.markdown-preview.theme-dark h3 {
+  color: hsl(210 20% 92%) !important;
+}
+
+.markdown-preview.theme-dark pre {
+  background: hsl(220 20% 8%) !important;
+  color: hsl(165 60% 60%) !important;
+}
+
+.markdown-preview.theme-dark code {
+  background: hsl(220 20% 18%) !important;
+}
+
+.markdown-preview.theme-dark blockquote {
+  border-left-color: hsl(165 50% 35%) !important;
+  color: hsl(210 15% 55%) !important;
+}
+
+.markdown-preview.theme-dark th {
+  background: hsl(220 20% 16%) !important;
+}
+
+.markdown-preview.theme-dark th,
+.markdown-preview.theme-dark td {
+  border-color: hsl(220 15% 22%) !important;
+}
+
+.markdown-preview.theme-dark hr {
+  border-color: hsl(220 15% 22%) !important;
+}
+
+.markdown-preview.theme-sepia {
+  background: hsl(38 40% 92%) !important;
+  color: hsl(30 20% 20%) !important;
+}
+
+.markdown-preview.theme-sepia h1,
+.markdown-preview.theme-sepia h2,
+.markdown-preview.theme-sepia h3 {
+  color: hsl(25 30% 18%) !important;
+}
+
+.markdown-preview.theme-sepia pre {
+  background: hsl(35 30% 85%) !important;
+  color: hsl(30 20% 20%) !important;
+}
+
+.markdown-preview.theme-sepia code {
+  background: hsl(35 25% 87%) !important;
+}
+
+.markdown-preview.theme-sepia blockquote {
+  border-left-color: hsl(30 40% 55%) !important;
+  color: hsl(30 15% 45%) !important;
+}
+
+.markdown-preview.theme-sepia th {
+  background: hsl(35 30% 87%) !important;
+}
+
+.markdown-preview.theme-sepia th,
+.markdown-preview.theme-sepia td {
+  border-color: hsl(35 20% 80%) !important;
+}
+
+.markdown-preview.theme-sepia hr {
+  border-color: hsl(35 20% 80%) !important;
 }
