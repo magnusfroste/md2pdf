@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://md-2-pdf.lovable.app/sitemap.xml

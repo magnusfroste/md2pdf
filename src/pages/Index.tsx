@@ -123,7 +123,7 @@ const Index = () => {
   }, [markdown, pdfSettings]);
 
   return (
-    <div className="flex flex-col h-screen bg-background">
+    <div className="flex flex-col h-screen bg-background" role="application" aria-label="Markdown to PDF-konverterare">
       <Toolbar
         onExportPdf={handleExportPdf}
         viewMode={viewMode}
@@ -136,7 +136,7 @@ const Index = () => {
         onTogglePageBoundaries={() => setShowPageBoundaries((v) => !v)}
       />
 
-      <main className="flex flex-1 min-h-0">
+      <main className="flex flex-1 min-h-0" aria-label="Redigeringsvy">
         {/* Editor */}
         {(viewMode === "split" || viewMode === "editor") && (
           <div
