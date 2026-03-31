@@ -104,8 +104,8 @@ const Index = () => {
         .set({
           margin: [pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm],
           filename: "document.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
+          image: { type: "jpeg", quality: 0.75 },
+          html2canvas: { scale: 1.5, useCORS: true },
           jsPDF: { unit: "mm", format: pageSizeMap[pdfSettings.pageSize], orientation: "portrait" },
           pagebreak: { mode: ["avoid-all", "css", "legacy"] },
         })
