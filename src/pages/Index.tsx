@@ -100,6 +100,7 @@ const Index = () => {
 
       const pageSizeMap = { a4: "a4", letter: "letter", legal: "legal" } as const;
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- html2pdf.js saknar typer för hela options-objektet
       await (html2pdf() as any)
         .set({
           margin: [pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm, pdfSettings.marginMm],
